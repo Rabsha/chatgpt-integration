@@ -17,54 +17,54 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="myforms">
                         <h1>Personal Care Plan</h1>
-                        <form>
-                            <div class="form-group">
+                        <form action="processing.php" method="post">
+                            <!-- <div class="form-group">
                                 <label>Client Name</label>
                                 <input type="text" name="ClientName" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Ages</label>
                                 <input type="text" name="ClientAge" class="form-control">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label>About Me</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>What are the Client's Desired Goals and Outcomes?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail2" class="form-control"></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Does the Client have Cognitive Impairment?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>What are the Client's Personal Care Needs?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Does the Client have Continence Care Needs ?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>What are the Client's Mobility Care Needs ?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>What are the Client's Meal Requirements ?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>What are the Client's Medication Support Requirements ?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
+                                <textarea name="detail1" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Client Advance Support Requirements ?</label>
-                                <textarea name="aboutme" class="form-control"></textarea>
-                            </div>
+                                <textarea name="detail1" class="form-control"></textarea>
+                            </div> -->
                             <div class="form-group">
                                 <center>
-                                    <button class="btn btn-success">Submit</button>
+                                    <button class="btn btn-success" type="submit">Submit</button>
                                 </center>
                             </div>
                         </form>
