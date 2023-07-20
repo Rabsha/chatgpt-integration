@@ -30,10 +30,10 @@
                                 <label>About Me</label>
                                 <textarea name="detail1" class="form-control"></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>What are the Client's Desired Goals and Outcomes?</label>
                                 <textarea name="detail2" class="form-control"></textarea>
-                            </div>
+                            </div> -->
                             <!-- <div class="form-group">
                                 <label>Does the Client have Cognitive Impairment?</label>
                                 <textarea name="detail1" class="form-control"></textarea>
