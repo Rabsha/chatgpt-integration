@@ -63,7 +63,9 @@
                                 <textarea name="aboutme" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <button>Submit</button>
+                                <center>
+                                    <button class="btn btn-success">Submit</button>
+                                </center>
                             </div>
                         </form>
                     </div>
