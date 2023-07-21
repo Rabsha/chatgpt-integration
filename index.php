@@ -28,7 +28,7 @@
                             </div> -->
                             <div class="form-group">
                                 <label>About Me</label>
-                                <textarea name="detail1" class="form-control"></textarea>
+                                <textarea name="detail1" id="detail1" class="form-control"></textarea>
                             </div>
                             <!-- <div class="form-group">
                                 <label>What are the Client's Desired Goals and Outcomes?</label>
@@ -75,5 +75,8 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 </body>
 </html>
