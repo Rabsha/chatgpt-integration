@@ -1,73 +1,45 @@
+// processing.php
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
+    require_once 'db_config.php';
 
-$openai_api_key = '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';
+    $client_name        = $_POST['detail1'];
+    $ages               = $_POST['detail2'];
+    $about_me           = $_POST['detail3'];
+    $ClientDesired      = $_POST['detail4'];
+    $ClientImpairment   = $_POST['detail5'];
+    $ClientPersonal     = $_POST['detail6'];
+    $ClientContinence   = $_POST['detail7'];
+    $ClientMobility     = $_POST['detail8'];
+    $ClientRequirements = $_POST['detail9'];
+    $ClientMedication   = $_POST['detail10'];
+    $ClientAdvance      = $_POST['detail11'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve user details from the form
-    $detail1 = $_POST['detail1'];
-    // Add more variables for the other details as needed
 
-    // Function to interact with ChatGPT
-    function generate_chat_response($message) {
-        global $openai_api_key;
-    
-        $gpt3_endpoint = 'https://api.openai.com/v1/engines/davinci-codex/completions';
-        $headers = [
-            'Authorization: Bearer ' . $openai_api_key,
-            'Content-Type: application/json',
-        ];
-    
-        $data = [
-            'prompt' => $message,
-            'max_tokens' => 1000, // Adjust the response length as needed
-        ];
-    
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $gpt3_endpoint);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    
-        $response = curl_exec($ch);
-    
-        // Check if the API request was successful
-        if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch);
-            return false;
-        }
-    
-        curl_close($ch);
-    
-        $result = json_decode($response, true);
-        return $result['choices'][0]['text'];
-    }
+    $client_name        = mysqli_real_escape_string($conn, $client_name);
+    $ages               = mysqli_real_escape_string($conn, $ages);
+    $about_me           = mysqli_real_escape_string($conn, $about_me);
+    $ClientDesired      = mysqli_real_escape_string($conn, $ClientDesired);
+    $ClientImpairment   = mysqli_real_escape_string($conn, $ClientImpairment);
+    $ClientPersonal     = mysqli_real_escape_string($conn, $ClientPersonal);
+    $ClientContinence   = mysqli_real_escape_string($conn, $ClientContinence);
+    $ClientMobility     = mysqli_real_escape_string($conn, $ClientMobility);
+    $ClientRequirements = mysqli_real_escape_string($conn, $ClientRequirements);
+    $ClientMedication   = mysqli_real_escape_string($conn, $ClientMedication);
+    $ClientAdvance      = mysqli_real_escape_string($conn, $ClientAdvance);
 
-    // Generate responses for user details using ChatGPT
-    $generated_detail1 = generate_chat_response($detail1);
-    // Add more variables for the other details as needed
+    $query = "INSERT INTO `clients`(`FullName`, `Age`, `AboutMe`, `ClientDesired`, `ClientImpairment`, `ClientPersonal`, `ClientContinence`, `ClientMobility`, `ClientRequirements`, `ClientMedication`, `ClientAdvance`) 
+    VALUES 
+    ('$client_name','$ages','$about_me','$ClientDesired','$ClientImpairment','$ClientPersonal','$ClientContinence','$ClientMobility','$ClientRequirements','$ClientMedication','$ClientAdvance')";
 
-    // Save the generated responses to the database (example using MySQLi)
-    $servername = 'localhost';
-    $username = 'root';
-    $password = 'root';
-    $dbname = 'careplan';
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
-    }
-
-    $sql = "INSERT INTO user_responses (user_response, generated_response) VALUES ('$detail1', '$generated_detail1')";
-    // Add more columns and variables for the other details as needed
-
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($query) === TRUE) {
         echo 'Data inserted successfully!';
+        header("location:index.php");
     } else {
-        echo 'Error: ' . $sql . '<br>' . $conn->error;
+        echo 'Error: ' . $conn->error;
     }
 
     $conn->close();
 }
+?>
